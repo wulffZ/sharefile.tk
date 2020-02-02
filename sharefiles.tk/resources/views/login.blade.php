@@ -28,7 +28,8 @@
             <form class="my-4 p-4" method="post" action="{{ url('/login') }}">
                 {{ csrf_field() }}
                 <div class="form-group text-center">
-                    <h1>Welcome (back) to sharesauce!</h1>
+                    <h1>Welcome to sharefiles!</h1>
+                    <h4>It's like sharesauce, but for files.</h4>
                 </div>
 
                 <div class="form-group">
