@@ -81,7 +81,6 @@
                     </ul>
 
                     <form class="form-inline" action="/search">
-                        {{--                        <div class="md-form my-0">--}}
                         <div class="form-group d-flex my-0">
                             <input type="text" name="search" class="dark-color-3 search--input" placeholder="Search" aria-label="Search">
                             <button class="btn py-0 search--button h-100" type="submit">

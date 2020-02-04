@@ -40,9 +40,11 @@ class UploadController extends Controller
 
             $file->save();
 
-            Storage::disk('public')->put('zips/', $zip);
+            $zip->storeAs('zips', $file->file_name, 'public');
 
-            return view('fileViews.uploadsucces');
+            $current_type = "zip";
+
+            return view('fileViews.uploadsucces', ['current_type' => $current_type]);
         } catch (\Exception $e) {
             return $e;
         }
@@ -68,7 +70,9 @@ class UploadController extends Controller
 
             Storage::disk('public')->put('games/', $game);
 
-            return view('fileViews.uploadsucces');
+            $current_type = "game";
+
+            return view('fileViews.uploadsucces', ['current_type' => $current_type]);
         } catch (\Exception $e) {
             return $e;
         }
@@ -92,9 +96,14 @@ class UploadController extends Controller
 
             $file->save();
 
-            Storage::disk('public')->put('images/', $image);
+            $image->storeAs('images', $file->file_name, 'public');
 
-            return 'success';
+            $path = Storage::url('images/' . $file->file_name);
+
+            $current_type = "image";
+
+
+            return view('fileViews.uploadsucces', ['current_type' => $current_type, 'path' => $path]);
         } catch (\Exception $e) {
             return $e;
         }
