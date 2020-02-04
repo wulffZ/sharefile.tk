@@ -11,7 +11,10 @@
 |
 */
 Route::group(['middleware' => 'checkLogin'], function () {
-    Route::get('/', 'HomeController@index');
+    Route::get('/', 'FileController@index');
+    Route::post('/upload', 'UploadController@determineType');
+    Route::get('/create','FileController@create');
+    Route::get('/test','FileController@getRecentFiles');
 });
     Route::get('/login', 'LoginController@index');
     Route::post('/login', 'LoginController@checklogin');

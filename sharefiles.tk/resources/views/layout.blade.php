@@ -57,7 +57,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link py-0" href="/doujinshi">Games</a>
+                            <a class="nav-link py-0" href="/games">Games</a>
                         </li>
 
                         <li class="nav-item">
@@ -65,17 +65,17 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link py-0" href="/eroges">Other</a>
+                            <a class="nav-link py-0" href="/other">Other</a>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle py-0" id="navbarDropdownMenuLink" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">Upload</a>
                             <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="/create?type=hentai">Zip</a>
-                                <a class="dropdown-item" href="/create?type=doujinshi">Games</a>
+                                <a class="dropdown-item" href="/create?type=zip">Zip</a>
+                                <a class="dropdown-item" href="/create?type=game">Games</a>
                                 <a class="dropdown-item" href="/create?type=image">Image</a>
-                                <a class="dropdown-item" href="/create?type=eroge">Other</a>
+                                <a class="dropdown-item" href="/create?type=other">Other</a>
                             </div>
                         </li>
                     </ul>
@@ -115,16 +115,16 @@
                 </div>
 
                 <div class="col-10 my-auto">
-                    <h1 class="text-center mb-5" id="navigation_mobile_title">sharesauce</h1>
+                    <h1 class="text-center mb-5" id="navigation_mobile_title">sharefiles</h1>
                     <a class="h1 mb-4 mt-5">View</a>
                     <div class="row mt-4 pl-3 mb-5">
                         <div class="pl-5 col">
                             <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
-                                <a href="/hentai" class="h1 w-100">Hentai</a>
+                                <a href="/zip" class="h1 w-100">Zip files</a>
                             </div>
 
                             <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
-                                <a href="/doujinshi" class="h1 w-100">Doujinshi</a>
+                                <a href="/games" class="h1 w-100">Games</a>
                             </div>
 
                             <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
@@ -132,11 +132,7 @@
                             </div>
 
                             <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
-                                <a href="/eroges" class="h1 w-100">Eroges</a>
-                            </div>
-
-                            <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
-                                <a href="/random" class="h1 w-100">Random</a>
+                                <a href="/other" class="h1 w-100">Other</a>
                             </div>
                         </div>
                     </div>
@@ -145,11 +141,11 @@
                     <div class="row mt-4 pl-3 mb-5">
                         <div class="pl-5 col">
                             <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
-                                <a href="/create?type=hentai" class="h1 w-100">Hentai</a>
+                                <a href="/create?type=zip" class="h1 w-100">Zip</a>
                             </div>
 
                             <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
-                                <a href="/create?type=doujinshi" class="h1 w-100">Doujinshi</a>
+                                <a href="/create?type=games" class="h1 w-100">Games</a>
                             </div>
 
                             <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
@@ -157,34 +153,7 @@
                             </div>
 
                             <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
-                                <a href="/create?type=eroge" class="h1 w-100">Eroge</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a class="h1 mb-4">Other</a>
-                    <div class="row mt-4 pl-3 mb-2">
-                        <div class="pl-5 col">
-                            <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
-                                <a href="/stats" class="h1 w-100">Stats</a>
-                            </div>
-
-                            <div class="row col mb-2 p-2 btn-logout navigation_mobile_element">
-                                <a href="/logout" class="h1 w-100">Logout</a>
-                            </div>
-
-                            <div class="row col mb-2 p-2 navigation_mobile_element">
-                                <form class="col" style="height: 5vh;" action="/search">
-                                    <div class="row h-100">
-                                        <div class="col-8 p-0">
-                                            <input class="form-control dark-color-2 w-100 h-100" name="search" type="text" placeholder="Search" aria-label="Search">
-                                        </div>
-
-                                        <div class="col-4 p-0 pl-1">
-                                            <button class="btn btn-primary w-100 h-100" type="submit">Search</button>
-                                        </div>
-                                    </div>
-                                </form>
+                                <a href="/create?type=other" class="h1 w-100">Other</a>
                             </div>
                         </div>
                     </div>
