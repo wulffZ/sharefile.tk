@@ -264,3 +264,7 @@ body {
     display: -webkit-flex !important;
     -webkit-flex-wrap: wrap !important;
 }
+
+.button-fade--white {
+    color:white !important;
+}

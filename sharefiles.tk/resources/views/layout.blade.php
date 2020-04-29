@@ -2,13 +2,13 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Sharesauce</title>
+    <title>sharefiles</title>
 
     <!-- Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <!-- bootstrap toggle -->
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
@@ -53,43 +53,39 @@
                 <div class="collapse navbar-collapse" id="basicExampleNav">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link pl-0 py-0" href="/zip">Zip</a>
+                            <a class="nav-link pl-0 py-0" href="/videos">videos</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link py-0" href="/games">Games</a>
+                            <a class="nav-link py-0" href="/games">games</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link py-0" href="/images">Images</a>
+                            <a class="nav-link py-0" href="/images">images</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link py-0" href="/other">Other</a>
+                            <a class="nav-link py-0" href="/other">others</a>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle py-0" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">Upload</a>
+                               aria-haspopup="true" aria-expanded="false">upload</a>
                             <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="/create?type=zip">Zip</a>
-                                <a class="dropdown-item" href="/create?type=game">Games</a>
-                                <a class="dropdown-item" href="/create?type=image">Image</a>
-                                <a class="dropdown-item" href="/create?type=other">Other</a>
+                                <a class="dropdown-item" href="/create?type=video">video</a>
+                                <a class="dropdown-item" href="/create?type=game">game</a>
+                                <a class="dropdown-item" href="/create?type=image">image</a>
+                                <a class="dropdown-item" href="/create?type=other">other</a>
                             </div>
                         </li>
-                    </ul>
 
-                    <form class="form-inline" action="/search">
-                        <div class="form-group d-flex my-0">
-                            <input type="text" name="search" class="dark-color-3 search--input" placeholder="Search" aria-label="Search">
-                            <button class="btn py-0 search--button h-100" type="submit">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="my-auto" style="height: 12px; fill: white;">
-                                    <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </form>
+                        @if(Auth::user()->role == "admin")
+                        <li class="nav-item">
+                            <a class="nav-link py-0" href="/invite">invite-others</a>
+                        </li>
+                        @endif
+
+                    </ul>
                 </div>
             </div>
         </div>

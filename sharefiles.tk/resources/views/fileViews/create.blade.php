@@ -28,7 +28,7 @@
                     </div>
                 @endif
 
-                @if (app('request')->input('type') == "zip" || app('request')->input('type') == "other" )
+                @if (app('request')->input('type') == "video" || app('request')->input('type') == "other" )
                     <div class="form-group">
                         <label>File</label>
                         <input type="file" name="file" class="form-control dark-color-3 p-1">
@@ -45,7 +45,7 @@
                 <input type="hidden" id="formHiddenCover" name="coverUrl" value="">
 
                 <div class="form-group">
-                    <button class="btn btn-primary float-right" type="submit">Upload sauce</button>
+                    <button class="btn dark-color-1 button-fade--white float-right" type="submit">upload</button>
                 </div>
             </form>
         </div>

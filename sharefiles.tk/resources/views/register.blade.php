@@ -2,10 +2,6 @@
 
 @section('content')
 
-    @if(isset(Auth::user()->username))
-        <script>window.location="/";</script>
-    @endif
-
     @if ($message = Session::get('error'))
         <div class="alert alert-danger alert-block">
             <strong>{{ $message }}</strong>
@@ -25,11 +21,10 @@
 
     <div class="row">
         <div class="col dark-color-4 mt-4">
-            <form class="my-4 p-4" method="post" action="{{ url('/login') }}">
+            <form class="my-4 p-4" method="post" action="{{ url('/register') }}">
                 {{ csrf_field() }}
                 <div class="form-group text-center">
-                    <h1>Welcome to sharefiles!</h1>
-                    <h4>It's like sharesauce, but for files.</h4>
+                    <h1>Register as a new user</h1>
                 </div>
 
                 <div class="form-group">
@@ -40,15 +35,16 @@
                 <div class="form-group">
                     <label>Enter password</label>
                     <input type="password" name="password" class="form-control dark-color-3" />
-                    <input type="submit" style="display: none" />
+                </div>
+
+                <div class="form-group">
+                    <label>Enter invite code</label>
+                    <input type="password" name="invite_code" class="form-control dark-color-3" />
                 </div>
 
                 <div class="form-group">
                     <input type="submit" class="btn w-0" value="" disabled>
-                    <div class="float-left">
-                        <a href="/register"class="btn dark-color-1 button-fade--white">register</a>
-                    </div>
-                    <input type="submit" name="login" class="btn dark-color-1 button-fade--white float-right" value="login" />
+                    <input type="submit" name="login" class="btn dark-color-1 button-fade--white float-right" value="register" />
                 </div>
             </form>
         </div>

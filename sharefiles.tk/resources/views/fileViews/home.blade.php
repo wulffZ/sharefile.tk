@@ -12,59 +12,49 @@
         }
     </style>
 
-    <div class="container">
-        <div class="row dark-color-4 py-4 mt-4">
-            <div class="col-md-3 h-100">
-                <div class="row">
-                    <div class="col">
-                        <h1 class="catagory-headers">Zip files</h1>
-                    </div>
-                </div>
-                <div class="row h-100 py-2">
-                    <div class="col h-100 d-flex">
-                        <img class="w-50 mx-auto my-auto"
-                             src="site-used-images/winrar-logo.png">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 h-100">
-                <div>
-                    <h1 class="catagory-headers">Games</h1>
-                </div>
-                <div class="row h-100 py-2">
-                    <div class="col h-100 d-flex">
-                        <img class="w-50 mx-auto my-auto"
-                         src="site-used-images/game-logo.png">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 h-100">
-                <div>
-                    <h1 class="catagory-headers">Images</h1>
-                </div>
-                <div class="row h-100 py-2">
-                    <div class="col h-100 d-flex">
-                        <img class="w-50 mx-auto my-auto"
-                         src="site-used-images/image-logo.png">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 h-100">
-                <div>
-                    <h1 class="catagory-headers">Other</h1>
-                </div>
-                <div class="row h-100 py-2">
-                    <div class="col h-100 d-flex">
-                        <img class="w-50 mx-auto my-auto"
-                         src="site-used-images/other-logo.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="row">
-
+            <div class="col py-4">
+                <div class="card text-white mb-3 dark-color-3">
+                    <div class="card-body">
+                        <h5 class="card-title">video's</h5>
+                        <p class="card-text">in this catogory you will find video's</p>
+                        <a href="/videos" class="btn dark-color-1 button-fade--white">go to</a>
+                        <a href="/create?type=video" class="btn dark-color-1 button-fade--white">upload a video</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col py-4">
+                <div class="card text-white mb-3 dark-color-3">
+                    <div class="card-body">
+                        <h5 class="card-title">games</h5>
+                        <p class="card-text">in this catogory you will find games.</p>
+                        <a href="/games" class="btn dark-color-1 button-fade--white">go to</a>
+                        <a href="/create?type=game" class="btn dark-color-1 button-fade--white">upload a game</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col">
+                <div class="card text-white mb-3 dark-color-3">
+                    <div class="card-body">
+                        <h5 class="card-title">images</h5>
+                        <p class="card-text">in this catogory you will find images.</p>
+                        <a href="/images" class="btn dark-color-1 button-fade--white">go to</a>
+                        <a href="/create?type=image" class="btn dark-color-1 button-fade--white">upload an image</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-white mb-3 dark-color-3">
+                    <div class="card-body">
+                        <h5 class="card-title">other</h5>
+                        <p class="card-text">in this catogory you will find files marked as other</p>
+                        <a href="/other" class="btn dark-color-1 button-fade--white">go to</a>
+                        <a href="/create?type=other" class="btn dark-color-1 button-fade--white">upload a file</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 @endsection

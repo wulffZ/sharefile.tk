@@ -11,11 +11,21 @@
 |
 */
 Route::group(['middleware' => 'checkLogin'], function () {
-    Route::get('/', 'FileController@index');
+    Route::get('/', 'HomeController@index');
     Route::post('/upload', 'UploadController@determineType');
+    Route::get('/videos', 'FileController@videos');
+    Route::get('/games', 'FileController@games');
+    Route::get('/images', 'FileController@images');
+    Route::get('/other', 'FileController@other');
     Route::get('/create','FileController@create');
-    Route::get('/test','FileController@getRecentFiles');
+    Route::get('/file/{id}', 'FileController@show');
+    Route::get('file/download/{id}', 'FileController@download');
+    Route::get('/invite', 'InviteController@index');
+    Route::post('/invite', 'InviteController@generate');
 });
+
     Route::get('/login', 'LoginController@index');
+    Route::get('/register', 'LoginController@register');
+    Route::post('/register', 'LoginController@registerPost');
     Route::post('/login', 'LoginController@checklogin');
     Route::get('/logout', 'LoginController@logout');
