@@ -53,6 +53,21 @@ class FIleController extends Controller
         }
     }
 
+    public function delete($id) {
+        $file = File::findOrFail($id);
+        try {
+            if(Auth::user()->id == $file->user_id || Auth::user()->role == "admin") {
+                $file->delete();
+            } else {
+                return "You do not have the permissions to perform this action";
+            }
+
+            return redirect('/');
+        } catch(\Exception $e) {
+            return $e;
+        }
+    }
+
     public function show($id) {
         $file = File::findOrFail($id);
         $user = User::where('id', $file->user_id)->get();

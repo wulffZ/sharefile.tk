@@ -27,6 +27,7 @@
                     @endif
 
                     <a class="btn dark-color-1 button-fade--white" href="/file/download/{{ $file->id }}" role="button">Download</a>
+                    <a class="btn dark-color-1 button-fade--white" href="/file/delete/{{ $file->id }}" role="button">Delete</a>
                 </div>
             </div>
         </div>

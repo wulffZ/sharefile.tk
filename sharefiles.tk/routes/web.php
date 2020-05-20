@@ -20,6 +20,7 @@ Route::group(['middleware' => 'checkLogin'], function () {
     Route::get('/create','FileController@create');
     Route::get('/file/{id}', 'FileController@show');
     Route::get('file/download/{id}', 'FileController@download');
+    Route::get('file/delete/{id}', 'FileController@delete');
     Route::get('/invite', 'InviteController@index');
     Route::post('/invite', 'InviteController@generate');
 });

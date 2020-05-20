@@ -268,3 +268,16 @@ body {
 .button-fade--white {
     color:white !important;
 }
+
+.login-background {
+    background-image: url("/storage/background/library2.png");
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+
+    height: 100vh;
+    width: 100vw;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
