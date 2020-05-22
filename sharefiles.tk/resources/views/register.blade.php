@@ -1,54 +1,92 @@
-@extends('headernoitems')
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>sharefiles</title>
 
-@section('content')
+    <!-- Bootstrap -->
+    <script src="/packages/js/jquery-3.3.1.js" crossorigin="anonymous"></script>
+    <script src="/packages/js/bootstrap.bundle.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/packages/css/bootstrap.css" crossorigin="anonymous">
 
-    @if ($message = Session::get('error'))
-        <div class="alert alert-danger alert-block">
-            <strong>{{ $message }}</strong>
-            <button type="button" class="close" data-dismiss="alert">×</button>
-        </div>
-    @endif
+    <!-- bootstrap toggle -->
+    <link href="/packages/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src="/packages/js/bootstrap4-toggle.min.js"></script>
 
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    <!-- Axios -->
+    <script src="/packages/js/axios.min.js"></script>
 
-    <div class="row">
-        <div class="col dark-color-4 mt-4">
-            <form class="my-4 p-4" method="post" action="{{ url('/register') }}">
-                {{ csrf_field() }}
-                <div class="form-group text-center">
-                    <h1>Register as a new user</h1>
+    <link href="/style.css" rel="stylesheet">
+    <script src="/script.js"></script>
+</head>
+
+<body>
+
+<div class="container-fluid px-0 vh-100">
+    <div class="w-100 h-100">
+        <div class="login-background"></div>
+        <div class="h-100 w-100" style="position: absolute; top:0;">
+            <div class="row mx-0 h-100">
+                <div class="col my-auto mx-auto">
+                    <div class="row">
+                        <div class="col-12 offset-0 col-md-8 offset-md-2 col-xl-6 offset-xl-3 dark-color-3 p-5">
+                            <div class="row pb-4">
+                                <div class="col d-flex">
+                                    <img src="logo.png" alt="logo" class="mx-auto">
+                                </div>
+                            </div>
+
+
+
+                            <form class="my-4 p-4" method="post" action="{{ url('/register') }}">
+                                {{ csrf_field() }}
+
+
+                                <div class="form-group text-center">
+                                    <h1>Register as a new user</h1>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Enter username</label>
+                                    <input type="text" name="username" class="form-control dark-color-3" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Enter password</label>
+                                    <input type="password" name="password" class="form-control dark-color-3" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Enter invite code</label>
+                                    <input type="password" name="invite_code" class="form-control dark-color-3" />
+                                </div>
+
+                                <div class="col-12 px-0 text-center">
+                                    <span style="color: red;">{{ Session::get('error') }}</span>
+                                    @foreach($errors->all() as $error)
+                                        <span style="color: red;">{{ $error }}</span><br/>
+                                    @endforeach
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="submit" class="btn w-0" value="" disabled>
+                                    <input type="submit" name="login" class="btn dark-color-1 button-fade--white float-right" value="register" />
+                                </div>
+
+
+                            </form>
+
+
+
+                        </div>
+                    </div>
                 </div>
-
-                <div class="form-group">
-                    <label>Enter username</label>
-                    <input type="text" name="username" class="form-control dark-color-3" />
-                </div>
-
-                <div class="form-group">
-                    <label>Enter password</label>
-                    <input type="password" name="password" class="form-control dark-color-3" />
-                </div>
-
-                <div class="form-group">
-                    <label>Enter invite code</label>
-                    <input type="password" name="invite_code" class="form-control dark-color-3" />
-                </div>
-
-                <div class="form-group">
-                    <input type="submit" class="btn w-0" value="" disabled>
-                    <input type="submit" name="login" class="btn dark-color-1 button-fade--white float-right" value="register" />
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 
-@endsection
+</div>
+</body>
+</html>
+
 
