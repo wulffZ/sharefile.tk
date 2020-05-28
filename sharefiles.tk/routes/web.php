@@ -17,6 +17,7 @@ Route::group(['middleware' => 'checkLogin'], function () {
     Route::get('/games', 'FileController@games');
     Route::get('/images', 'FileController@images');
     Route::get('/other', 'FileController@other');
+    Route::get('/music', 'FileController@music');
     Route::get('/create','FileController@create');
     Route::get('/file/{id}', 'FileController@show');
     Route::get('file/download/{id}', 'FileController@download');

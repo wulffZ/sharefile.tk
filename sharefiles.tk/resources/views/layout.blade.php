@@ -68,6 +68,10 @@
                             <a class="nav-link py-0" href="/other">others</a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link py-0" href="/music">music</a>
+                        </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle py-0" id="navbarDropdownMenuLink" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">upload</a>
@@ -76,6 +80,7 @@
                                 <a class="dropdown-item" href="/create?type=game">game</a>
                                 <a class="dropdown-item" href="/create?type=image">image</a>
                                 <a class="dropdown-item" href="/create?type=other">other</a>
+                                <a class="dropdown-item" href="/create?type=music">music</a>
                             </div>
                         </li>
 

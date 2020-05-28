@@ -19,6 +19,13 @@
                             Your browser does not support the video tag.
                     </video>
                     @endif
+                    @if($file->type == "music")
+                            <audio style="width: 100%;" controls>
+                                <source src="horse.mp3" type="audio/mpeg">
+                                <source src="/storage/music/{{ $file->file_name }}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                    @endif
                     @if($file->type == "other")
                         <p class="card-text">This file is marked as "other" so there is no preview available</p>
                     @endif

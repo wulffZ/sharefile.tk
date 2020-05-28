@@ -13,7 +13,7 @@
     </style>
 
         <div class="row">
-            <div class="col py-4">
+            <div class="col pt-4">
                 <div class="card text-white mb-3 dark-color-3">
                     <div class="card-body">
                         <h5 class="card-title">video's</h5>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col py-4">
+            <div class="col pt-4">
                 <div class="card text-white mb-3 dark-color-3">
                     <div class="card-body">
                         <h5 class="card-title">games</h5>
@@ -56,5 +56,17 @@
                 </div>
             </div>
         </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card text-white mb-3 dark-color-3">
+                <div class="card-body">
+                    <h5 class="card-title">music</h5>
+                    <p class="card-text">in this catogory you will find music.</p>
+                    <a href="/music" class="btn dark-color-1 button-fade--white">go to</a>
+                    <a href="/create?type=music" class="btn dark-color-1 button-fade--white">upload music</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 @endsection

@@ -35,6 +35,13 @@
                     </div>
                 @endif
 
+                @if (app('request')->input('type') == "music")
+                    <div class="form-group">
+                        <label>File</label>
+                        <input type="file" name="file" class="form-control dark-color-3 p-1">
+                    </div>
+                @endif
+
                 @if(app('request')->input('type') == "game")
                     <div class="form-group">
                         <label>File (preferably a zip or a rar for large games)</label>

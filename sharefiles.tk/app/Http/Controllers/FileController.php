@@ -33,6 +33,11 @@ class FIleController extends Controller
         return view('fileViews.other', compact('data'));
     }
 
+    public function music() {
+        $data =  File::join('users', 'users.id' , '=', 'file.user_id')->select('file.*', 'users.username')->where('type','music')->get();
+        return view('fileViews.music', compact('data'));
+    }
+
     public function download($id) {
         try {
             $file = File::find($id);
@@ -47,6 +52,9 @@ class FIleController extends Controller
             }
             if($file->type == "other") {
                 return response()->download("storage/other/" . $file->file_name, $file->file_name);
+            }
+            if($file->type == "music") {
+                return response()->download("storage/music/" . $file->file_name, $file->file_name);
             }
         } catch(\Exception $e) {
             return $e;

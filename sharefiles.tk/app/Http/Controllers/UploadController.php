@@ -20,6 +20,8 @@ class UploadController extends Controller
             return $this->sourceIsImage(request());
         } elseif (request('type') == "other") {
             return $this->sourceIsOther(request());
+        } elseif (request('type') == "music") {
+            return $this->sourceIsMusic(request());
         }
     }
 
@@ -128,6 +130,32 @@ class UploadController extends Controller
             $other->storeAs('/other', $file->file_name, 'public');
 
             $current_type = "other";
+
+            return view('fileViews.uploadsucces', ['current_type' => $current_type, 'data' => $file]);
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+
+    public function sourceIsMusic($request) {
+        $music = $request->file;
+
+        $fileExtention = $music->getClientOriginalExtension();
+
+        $file_name = $this->generateName();
+        try {
+            $file = new File();
+            $file->user_id = Auth::id();
+            $file->name = $request->name;
+            $file->file_name = "$file_name" . "." . "$fileExtention";
+            $file->type = $request->type;
+            $file->soft_delete = "false";
+
+            $file->save();
+
+            $music->storeAs('/music', $file->file_name, 'public');
+
+            $current_type = "music";
 
             return view('fileViews.uploadsucces', ['current_type' => $current_type, 'data' => $file]);
         } catch (\Exception $e) {
