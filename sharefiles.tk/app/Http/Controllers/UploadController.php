@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\File;
 use Auth;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -27,148 +28,48 @@ class UploadController extends Controller
 
     public function sourceIsVideo($request)
     {
-       $video = $request->file;
-
-        $fileExtention = $video->getClientOriginalExtension();
-
-        $file_name = $this->generateName();
-        try {
-            $file = new File();
-            $file->user_id = Auth::id();
-            $file->name = $request->name;
-            $file->file_name = "$file_name" . "." . "$fileExtention";
-            $file->type = $request->type;
-            $file->soft_delete = "false";
-
-            $file->save();
-
-            $video->storeAs('/videos', $file->file_name, 'public');
-
-            $current_type = "video";
-
-            return view('fileViews.uploadsucces', ['current_type' => $current_type , 'data' => $file ]);
-        } catch (\Exception $e) {
-            return $e;
-        }
-    }
-
-
-    public function sourceIsGame($request)
-    {
-        $game = $request->file;
-
-        $fileExtention = $game->getClientOriginalExtension();
-
-        $file_name = $this->generateName();
-        try {
-            $file = new File();
-            $file->user_id = Auth::id();
-            $file->name = $request->name;
-            $file->file_name = "$file_name" . "." . "$fileExtention";
-            $file->type = $request->type;
-            $file->soft_delete = "false";
-
-            $file->save();
-
-            $game->storeAs('/games', $file->file_name, 'public');
-
-            $current_type = "game";
-
-            return view('fileViews.uploadsucces', ['current_type' => $current_type , 'data' => $file]);
-        } catch (\Exception $e) {
-            return $e;
-        }
+        Artisan::call('source:video', [
+            'request' => $request
+        ]);
+        $current_type = "video";
+        return view('fileViews.uploadsucces', ['current_type' => $current_type]);
     }
 
 
     public function sourceIsImage($request)
     {
-        $image = $request->image;
-
-        $fileExtention = $image->getClientOriginalExtension();
-
-        $file_name = $this->generateName();
-        try {
-            $file = new File();
-            $file->user_id = Auth::id();
-            $file->name = $request->name;
-            $file->file_name = "$file_name" . "." . "$fileExtention";
-            $file->type = $request->type;
-            $file->soft_delete = "false";
-
-            $file->save();
-
-            $image->storeAs('/images', $file->file_name, 'public');
-
-            $path = Storage::url('images/' . $file->file_name);
-
-            $current_type = "image";
+        Artisan::call('source:image', [
+            'request' => $request
+        ]);
+        $current_type = "image";
+        return view('fileViews.uploadsucces', ['current_type' => $current_type]);
+    }
 
 
-            return view('fileViews.uploadsucces', ['current_type' => $current_type, 'path' => $path , 'data' => $file ]);
-        } catch (\Exception $e) {
-            return $e;
-        }
+    public function sourceIsGame($request)
+    {
+        Artisan::call('source:game', [
+            'request' => $request
+        ]);
+        $current_type = "game";
+        return view('fileViews.uploadsucces', ['current_type' => $current_type]);
     }
 
     public function sourceIsOther($request) {
-        $other = $request->file;
-
-        $fileExtention = $other->getClientOriginalExtension();
-
-        $file_name = $this->generateName();
-        try {
-            $file = new File();
-            $file->user_id = Auth::id();
-            $file->name = $request->name;
-            $file->file_name = "$file_name" . "." . "$fileExtention";
-            $file->type = $request->type;
-            $file->soft_delete = "false";
-
-            $file->save();
-
-            $other->storeAs('/other', $file->file_name, 'public');
-
-            $current_type = "other";
-
-            return view('fileViews.uploadsucces', ['current_type' => $current_type, 'data' => $file]);
-        } catch (\Exception $e) {
-            return $e;
-        }
+        Artisan::call('source:other', [
+            'request' => $request
+        ]);
+        $current_type = "other";
+        return view('fileViews.uploadsucces', ['current_type' => $current_type]);
     }
 
     public function sourceIsMusic($request) {
-        $music = $request->file;
-
-        $fileExtention = $music->getClientOriginalExtension();
-
-        $file_name = $this->generateName();
-        try {
-            $file = new File();
-            $file->user_id = Auth::id();
-            $file->name = $request->name;
-            $file->file_name = "$file_name" . "." . "$fileExtention";
-            $file->type = $request->type;
-            $file->soft_delete = "false";
-
-            $file->save();
-
-            $music->storeAs('/music', $file->file_name, 'public');
-
-            $current_type = "music";
-
-            return view('fileViews.uploadsucces', ['current_type' => $current_type, 'data' => $file]);
-        } catch (\Exception $e) {
-            return $e;
-        }
+        Artisan::call('source:music', [
+            'request' => $request
+        ]);
+        $current_type = "music";
+        return view('fileViews.uploadsucces', ['current_type' => $current_type]);
     }
 
-    public function generateName()
-    {
-        $imageName = strval(microtime());
-        $imageName = str_replace(' ', '', $imageName);
-        $imageName = str_replace('0.', '', $imageName);
-        return $imageName;
-    }
 }
 
