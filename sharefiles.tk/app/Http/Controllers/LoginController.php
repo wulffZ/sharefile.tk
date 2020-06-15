@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\InviteCode;
 use Facade\Ignition\Support\Packagist\Package;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\In;
 use mysql_xdevapi\Exception;
 use Validator;
-use Auth;
 use App\User;
 use App\Settings;
 
@@ -21,10 +21,20 @@ class LoginController extends Controller
         return view('login');
     }
 
-    function checklogin(Request $request)
+    function login(Request $request)
     {
-        $user = $request->get('username');
-        if (User::where('username', '=', $user)->exists()) {
+        $username = $request->get('username');
+        $password = $request->get('username');
+
+        if ($username == null) {
+            return back()->with('error', 'Please enter a username');
+        }
+
+        if ($password == null) {
+            return back()->with('error', 'Please enter a password');
+        }
+
+        if (User::where('username', '=', $username)->exists()) {
             $this->validate($request, [
                 'username' => 'required',
                 'password' => 'required'
@@ -36,16 +46,8 @@ class LoginController extends Controller
             );
 
             if (Auth::attempt($user_data)) {
-                session_start();
-                if (isset($_SESSION['redirectUrl'])) {
-                    return redirect($_SESSION['redirectUrl']);
-                }
                 return redirect('/');
-            } else {
-                return back()->with('error', 'Wrong Login Details');
             }
-        } else {
-            return back()->with('error', 'Please enter login details');
         }
     }
 
@@ -63,12 +65,6 @@ class LoginController extends Controller
         // check if all vars are sent / filled
         if(User::where('username', '=', $username)->exists()) {
             return back()->with('error', 'Username invalid. User with that name already exists.');
-        }
-        if ($username == null) {
-            return back()->with('error', 'Please enter a username');
-        }
-        if ($password == null) {
-            return back()->with('error', 'Please enter a password');
         }
         if ($invite_code == null) {
             return back()->with('error', 'Please enter an invite code');

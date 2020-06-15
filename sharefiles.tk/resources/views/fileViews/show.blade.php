@@ -30,7 +30,7 @@
                         <p class="card-text">This file is marked as "other" so there is no preview available</p>
                     @endif
                     @if($file->type == "game")
-                        <p class="card-text">This file is marked as "other" so there is no preview available</p>
+                        <p class="card-text">This file is marked as "game" so there is no preview available</p>
                     @endif
 
                     <a class="btn dark-color-1 button-fade--white" href="/file/download/{{ $file->id }}" role="button">Download</a>
