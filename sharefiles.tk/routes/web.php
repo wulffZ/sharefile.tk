@@ -26,8 +26,8 @@ Route::group(['middleware' => 'checkLogin'], function () {
     Route::post('/invite', 'InviteController@generate');
 });
 
-    Route::get('/login', 'LoginController@index');
-    Route::get('/register', 'LoginController@register');
-    Route::post('/register', 'LoginController@registerPost');
-    Route::post('/login', 'LoginController@checklogin');
+    Route::get('/login', 'LoginController@indexLogin');
+    Route::get('/register', 'LoginController@indexRegister');
+    Route::post('/register', 'LoginController@doRegister');
+    Route::post('/login', 'LoginController@dologin');
     Route::get('/logout', 'LoginController@logout');

@@ -16,12 +16,12 @@ use App\Settings;
 
 class LoginController extends Controller
 {
-    function index()
+    function indexLogin()
     {
         return view('login');
     }
 
-    function login(Request $request)
+    function dologin(Request $request)
     {
         $username = $request->get('username');
         $password = $request->get('username');
@@ -51,12 +51,12 @@ class LoginController extends Controller
         }
     }
 
-    public function register()
+    public function indexRegister()
     {
         return view('register');
     }
 
-    public function registerPost(Request $request)
+    public function doRegister(Request $request)
     {
         // fill all vars
         $username = $request->get('username');
