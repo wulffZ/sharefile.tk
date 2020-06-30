@@ -6,6 +6,7 @@ use App\File;
 use App\Library\GenerateName;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Auth;
+use Pawlox\VideoThumbnail\Facade\VideoThumbnail;
 
 class sourceIsVideo extends Command
 {

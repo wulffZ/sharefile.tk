@@ -36,30 +36,14 @@
                                 </div>
                             </div>
 
-
-
-                            <form class="my-4 p-4" method="post" action="{{ url('/register') }}">
+                            <form class="row" method="post" action="{{ url('/register') }}">
                                 {{ csrf_field() }}
-
-
-                                <div class="form-group text-center">
-                                    <h1>Register as a new user</h1>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Enter username</label>
-                                    <input type="text" name="username" class="form-control dark-color-3" />
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Enter password</label>
-                                    <input type="password" name="password" class="form-control dark-color-3" />
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Enter invite code</label>
-                                    <input type="password" name="invite_code" class="form-control dark-color-3" />
-                                </div>
+                                <input type="text" placeholder="Username" name="username"
+                                       class="form-control form-control-lg dark-color-4 my-3"/>
+                                <input type="password" placeholder="Password" name="password"
+                                       class="form-control form-control-lg dark-color-4 my-3"/>
+                                <input type="password" placeholder="Invite Code" name="invite_code"
+                                       class="form-control form-control-lg dark-color-4 my-3"/>
 
                                 <div class="col-12 px-0 text-center">
                                     <span style="color: red;">{{ Session::get('error') }}</span>
@@ -68,16 +52,12 @@
                                     @endforeach
                                 </div>
 
-                                <div class="form-group">
-                                    <input type="submit" class="btn w-0" value="" disabled>
-                                    <input type="submit" name="login" class="btn dark-color-1 button-fade--white float-right" value="register" />
-                                </div>
+                                <input type="submit" name="register"
+                                       class="btn btn-primary btn-lg btn--no-border-radius my-3 mt-4 w-100"
+                                       value="REGISTER"/>
 
 
                             </form>
-
-
-
                         </div>
                     </div>
                 </div>
@@ -86,7 +66,9 @@
     </div>
 
 </div>
+
 </body>
 </html>
+
 
 

@@ -20,5 +20,10 @@
           </div>
       @endforeach
     </div>
+    <div class="row">
+        <div class="col-sm-12 mx-auto">
+            {{ $data->links() }}
+        </div>
+    </div>
 @endsection
 

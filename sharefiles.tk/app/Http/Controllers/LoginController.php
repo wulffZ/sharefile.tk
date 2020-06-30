@@ -24,15 +24,6 @@ class LoginController extends Controller
     function dologin(Request $request)
     {
         $username = $request->get('username');
-        $password = $request->get('username');
-
-        if ($username == null) {
-            return back()->with('error', 'Please enter a username');
-        }
-
-        if ($password == null) {
-            return back()->with('error', 'Please enter a password');
-        }
 
         if (User::where('username', '=', $username)->exists()) {
             $this->validate($request, [
@@ -45,9 +36,12 @@ class LoginController extends Controller
                 'password' => $request->get('password')
             );
 
-            if (Auth::attempt($user_data)) {
-                return redirect('/');
+            if (!Auth::attempt($user_data)) {
+                return back()->with('error', 'Username / Password incorrect');
             }
+            return redirect('/');
+        } else {
+            return back()->with('error', 'Username taken.');
         }
     }
 
