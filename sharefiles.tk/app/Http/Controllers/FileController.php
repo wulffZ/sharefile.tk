@@ -6,8 +6,6 @@ use App\User;
 use Illuminate\Http\Request;
 use App\File;
 use Illuminate\Support\Facades\Auth;
-use Pawlox\VideoThumbnail\Facade\VideoThumbnail;
-use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
 class FIleController extends Controller
 {
@@ -18,7 +16,7 @@ class FIleController extends Controller
 
     public function videos()
     {
-        $data = File::join('users', 'users.id', '=', 'file.user_id')->select('file.*', 'users.username')->where('type', 'video')->simplePaginate(6);
+        $data = File::join('users', 'users.id', '=', 'file.user_id')->select('file.*', 'users.username')->where('type', 'video')->orderBy('created_at', 'desc')->simplePaginate(6);
         return view('fileViews.videos', compact('data'));
     }
 
@@ -99,9 +97,11 @@ class FIleController extends Controller
         return view('fileViews.create');
     }
 
-    public function getRecentFiles()
+    public function playVideo($id)
     {
-        $user_id = Auth::id();
-        $recentFiles = File::where('user_id', $user_id)->orderby('created_at', 'desc')->get();
+        $file = File::findOrFail($id);
+        return view('fileViews.play', compact('file'));
     }
+
+
 }

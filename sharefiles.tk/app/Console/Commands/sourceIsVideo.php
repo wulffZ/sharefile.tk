@@ -6,7 +6,7 @@ use App\File;
 use App\Library\GenerateName;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Auth;
-use Pawlox\VideoThumbnail\Facade\VideoThumbnail;
+use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
 class sourceIsVideo extends Command
 {
