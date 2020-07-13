@@ -163,9 +163,10 @@
     </nav>
 </div>
 
-<div class="container px-5 mb-4">
+<div class="container px-5 mb-4" id="app">
     @yield('content')
 </div>
+<script src="/js/app.js" type="application/javascript"></script>
 
 </body>
 </html>

@@ -14,7 +14,7 @@ Route::group(['middleware' => 'checkLogin'], function () {
     Route::get('/', 'HomeController@index');
     Route::get('/play/{id}', 'FileController@playVideo');
     Route::post('/upload', 'UploadController@determineType');
-    Route::get('/videos', 'FileController@videos');
+    Route::get('/videos', 'FileController@videos')->name('videos');
     Route::get('/games', 'FileController@games');
     Route::get('/images', 'FileController@images');
     Route::get('/other', 'FileController@other');
