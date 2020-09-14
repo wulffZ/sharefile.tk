@@ -21,7 +21,6 @@ Route::group(['middleware' => 'checkLogin'], function () {
     Route::get('/music', 'FileController@music');
     Route::get('/create','FileController@create');
     Route::get('/file/{id}', 'FileController@show');
-    Route::get('file/download/{id}', 'FileController@download');
     Route::get('file/delete/{id}', 'FileController@delete');
     Route::get('/invite', 'InviteController@index');
     Route::post('/invite', 'InviteController@generate');
@@ -29,6 +28,7 @@ Route::group(['middleware' => 'checkLogin'], function () {
 
     Route::get('guest/{code}', 'GuestController@show');
     Route::get('guest/generate/{file_id}', 'GuestController@generate');
+    Route::get('file/download/{id}', 'FileController@download');
 
     Route::get('/login', 'LoginController@indexLogin');
     Route::get('/register', 'LoginController@indexRegister');
