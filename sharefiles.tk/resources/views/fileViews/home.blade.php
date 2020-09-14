@@ -1,17 +1,8 @@
 @extends('layout')
 
 @section('content')
-    <style>
-        .image {
-            width: 100%;
-            padding: 10px;
-        }
 
-        .catagory-headers {
-            text-align: center;
-        }
-    </style>
-
+    <link rel="stylesheet" href="style.css">
         <div class="row">
             <div class="col pt-4">
                 <div class="card text-white mb-3 dark-color-3">
@@ -68,5 +59,4 @@
             </div>
         </div>
     </div>
-
 @endsection

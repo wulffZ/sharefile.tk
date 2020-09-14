@@ -281,3 +281,12 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.image {
+    width: 100%;
+    padding: 10px;
+}
+
+.catagory-headers {
+    text-align: center;
+}
