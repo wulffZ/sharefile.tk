@@ -35,8 +35,10 @@
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle py-0 px-3" id="navbar--user" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">{{ Auth::user()->username }}</a>
+                        @if(Auth::check())<a class="nav-link dropdown-toggle py-0 px-3" id="navbar--user"
+                                             data-toggle="dropdown"
+                                             aria-haspopup="true" aria-expanded="false">{{ Auth::user()->username }}</a>
+                        @endif
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="http://wanwan-html5.moe/#Karen">Profile</a>
                             <a class="dropdown-item" href="/logout">Logout</a>
@@ -84,12 +86,13 @@
                             </div>
                         </li>
 
-                        @if(Auth::user()->role == "admin")
-                        <li class="nav-item">
-                            <a class="nav-link py-0" href="/invite">invite-others</a>
-                        </li>
+                        @if(Auth::check())
+                            @if(Auth::user()->role == "admin")
+                                <li class="nav-item">
+                                    <a class="nav-link py-0" href="/invite">invite-others</a>
+                                </li>
+                            @endif
                         @endif
-
                     </ul>
                 </div>
             </div>
