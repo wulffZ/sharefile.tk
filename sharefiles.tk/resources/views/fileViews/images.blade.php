@@ -1,9 +1,9 @@
 @extends('layout')
 
 @section('content')
-    <div class="row">
+    <div class="row py-4">
         @foreach ($data as $image)
-            <div class="col-sm-6 py-4">
+            <div class="col-sm-6">
                 <div class="card text-white mb-3 dark-color-3">
                     <div class="card-body">
                         <h5 class="card-title">{{ $image->name }}</h5>

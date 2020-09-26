@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\GuestCode;
 use App\User;
 use Illuminate\Http\Request;
 use App\File;
 use Illuminate\Support\Facades\Auth;
 
-class FIleController extends Controller
+class  FIleController extends Controller
 {
     public function index()
     {
@@ -46,25 +47,29 @@ class FIleController extends Controller
 
     public function download($id)
     {
-        try {
-            $file = File::find($id);
-            if ($file->type == "image") {
-                return response()->download("storage/images/" . $file->file_name, $file->file_name);
+        $file = File::find($id);
+        if(GuestCode::where('file_id', $id)->first()) {
+            try {
+                if ($file->type == "image") {
+                    return response()->download("storage/images/" . $file->file_name, $file->file_name);
+                }
+                if ($file->type == "video") {
+                    return response()->download("storage/videos/" . $file->file_name, $file->file_name);
+                }
+                if ($file->type == "game") {
+                    return response()->download("storage/games/" . $file->file_name, $file->file_name);
+                }
+                if ($file->type == "other") {
+                    return response()->download("storage/other/" . $file->file_name, $file->file_name);
+                }
+                if ($file->type == "music") {
+                    return response()->download("storage/music/" . $file->file_name, $file->file_name);
+                }
+            } catch (\Exception $e) {
+                return $e;
             }
-            if ($file->type == "video") {
-                return response()->download("storage/videos/" . $file->file_name, $file->file_name);
-            }
-            if ($file->type == "game") {
-                return response()->download("storage/games/" . $file->file_name, $file->file_name);
-            }
-            if ($file->type == "other") {
-                return response()->download("storage/other/" . $file->file_name, $file->file_name);
-            }
-            if ($file->type == "music") {
-                return response()->download("storage/music/" . $file->file_name, $file->file_name);
-            }
-        } catch (\Exception $e) {
-            return $e;
+        } else {
+            return redirect('login');
         }
     }
 
