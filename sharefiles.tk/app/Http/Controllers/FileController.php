@@ -48,7 +48,7 @@ class  FIleController extends Controller
     public function download($id)
     {
         $file = File::find($id);
-        if(GuestCode::where('file_id', $id)->first()) {
+        if(GuestCode::where('file_id', $id)->first() || Auth::check()) {
             try {
                 if ($file->type == "image") {
                     return response()->download("storage/images/" . $file->file_name, $file->file_name);
