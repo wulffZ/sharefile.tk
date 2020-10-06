@@ -10,12 +10,11 @@
                         <p class="card-text">Uploaded by: {{ $music->username }}</p>
                         <div class="col py-4">
                             <audio style="width: 100%;" controls>
-                                <source src="horse.mp3" type="audio/mpeg">
                                 <source src="/storage/music/{{ $music->file_name }}" type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
-                        <a href="/file/{{ $music->id }}" class="btn dark-color-1 button-fade--white">go to</a>
+                        <a href="{{ route('file', ['id' => $music->id])}}" class="btn dark-color-1 button-fade--white">go to</a>
                     </div>
                 </div>
             </div>

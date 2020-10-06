@@ -1971,21 +1971,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   props: {
-    videoId: {
+    videoData: {
       required: true,
-      type: String
-    },
-    videoTitle: {
-      required: true,
-      type: String
-    },
-    videoFileName: {
-      required: true,
-      type: String
-    },
-    videoUploader: {
-      required: true,
-      type: String
+      type: Object
     }
   }
 });
@@ -37592,11 +37580,13 @@ var render = function() {
       [
         _c("div", { staticClass: "card-body" }, [
           _c("h5", { staticClass: "card-title" }, [
-            _vm._v(_vm._s(_vm.videoTitle))
+            _vm._v(_vm._s(_vm.videoData.video_title))
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "card-text" }, [
-            _vm._v("Uploaded by: " + _vm._s(_vm.videoUploader))
+            _vm._v(
+              "Uploaded by: " + _vm._s(_vm.videoData.video_uploader.username)
+            )
           ]),
           _vm._v(" "),
           _vm.isLoaded
@@ -37610,7 +37600,7 @@ var render = function() {
                       [
                         _c("source", {
                           attrs: {
-                            src: "storage/videos/" + _vm.videoFileName,
+                            src: _vm.videoData.video_url,
                             type: "video/mp4"
                           }
                         }),
@@ -37646,7 +37636,7 @@ var render = function() {
             "a",
             {
               staticClass: "btn dark-color-1 button-fade--white",
-              attrs: { href: "/file/" + _vm.videoId }
+              attrs: { href: _vm.videoData.video_item_route }
             },
             [_vm._v("go to ")]
           )
@@ -50059,8 +50049,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Sander\Documents\Projects\sharefile.tk\sharefiles.tk\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Sander\Documents\Projects\sharefile.tk\sharefiles.tk\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\user\Documents\Laravel\sharefile.tk\sharefiles.tk\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\user\Documents\Laravel\sharefile.tk\sharefiles.tk\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

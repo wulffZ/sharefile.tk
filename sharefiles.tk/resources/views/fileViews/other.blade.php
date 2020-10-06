@@ -9,7 +9,7 @@
                         <h5 class="card-title">{{ $other->name }}</h5>
                         <p class="card-text">Uploaded by: {{ $other->username }}</p>
                         <p class="card-text">No preview available</p>
-                        <a href="/file/{{ $other->id }}" class="btn dark-color-1 button-fade--white">go to</a>
+                        <a href="{{ route('file', ['id' => $other->id])}}" class="btn dark-color-1 button-fade--white">go to</a>
                     </div>
                 </div>
             </div>

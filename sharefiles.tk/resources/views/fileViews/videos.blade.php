@@ -2,11 +2,9 @@
 
 @section('content')
     <div class="row mt-4">
-            @foreach ($data as $video)
-            <load-video video-id="{{ $video->id }}"
-                        video-title="{{ $video->name }}"
-                        video-file-name="{{ $video->file_name }}"
-                        video-uploader="{{ $video->username }}"
+            @foreach ($video as $video_item)
+            <load-video :video-data="{{ json_encode($video_item) }}"
+
             ></load-video>
             @endforeach
     </div>

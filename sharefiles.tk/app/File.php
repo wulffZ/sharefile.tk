@@ -13,4 +13,6 @@ class File extends Authenticatable
     protected $fillable = [
         'name', 'file_name', 'type', 'soft_delete'
     ];
+
+
 }

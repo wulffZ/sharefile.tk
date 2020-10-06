@@ -15,12 +15,12 @@ Route::group(['middleware' => 'checkLogin'], function () {
     Route::get('/play/{id}', 'FileController@playVideo');
     Route::post('/upload', 'UploadController@determineType');
     Route::get('/videos', 'FileController@videos')->name('videos');
-    Route::get('/games', 'FileController@games');
-    Route::get('/images', 'FileController@images');
-    Route::get('/other', 'FileController@other');
-    Route::get('/music', 'FileController@music');
-    Route::get('/create','FileController@create');
-    Route::get('/file/{id}', 'FileController@show');
+    Route::get('/games', 'FileController@games')->name('games');
+    Route::get('/images', 'FileController@images')->name('images');
+    Route::get('/other', 'FileController@other')->name('other');
+    Route::get('/music', 'FileController@music')->name('music');
+    Route::get('/create','FileController@create')->name('create');
+    Route::get('/file/{id}', 'FileController@show')->name('file');
     Route::get('file/delete/{id}', 'FileController@delete');
     Route::get('/invite', 'InviteController@index');
     Route::post('/invite', 'InviteController@generate');

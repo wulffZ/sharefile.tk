@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\GuestCode;
+use App\Http\Resources\VideoResource;
 use App\User;
 use Illuminate\Http\Request;
 use App\File;
@@ -18,58 +19,56 @@ class  FIleController extends Controller
     public function videos()
     {
         $data = File::join('users', 'users.id', '=', 'file.user_id')->select('file.*', 'users.username')->where('type', 'video')->orderBy('created_at', 'desc')->simplePaginate(6);
-        return view('fileViews.videos', compact('data'));
+        $video = VideoResource::collection($data);
+        return view('fileViews.videos', compact('video', 'data'));
     }
 
     public function games()
     {
-        $data = File::join('users', 'users.id', '=', 'file.user_id')->select('file.*', 'users.username')->where('type', 'game')->get();
+        $data = File::join('users', 'users.id', '=', 'file.user_id')->select('file.*', 'users.username')->where('type', 'game')->orderBy('created_at', 'desc')->get();
         return view('fileViews.games', compact('data'));
     }
 
     public function images()
     {
-        $data = File::join('users', 'users.id', '=', 'file.user_id')->select('file.*', 'users.username')->where('type', 'image')->get();
+        $data = File::join('users', 'users.id', '=', 'file.user_id')->select('file.*', 'users.username')->where('type', 'image')->orderBy('created_at', 'desc')->get();
         return view('fileViews.images', compact('data'));
     }
 
     public function other()
     {
-        $data = File::join('users', 'users.id', '=', 'file.user_id')->select('file.*', 'users.username')->where('type', 'other')->get();
+        $data = File::join('users', 'users.id', '=', 'file.user_id')->select('file.*', 'users.username')->where('type', 'other')->orderBy('created_at', 'desc')->get();
         return view('fileViews.other', compact('data'));
     }
 
     public function music()
     {
-        $data = File::join('users', 'users.id', '=', 'file.user_id')->select('file.*', 'users.username')->where('type', 'music')->get();
+        $data = File::join('users', 'users.id', '=', 'file.user_id')->select('file.*', 'users.username')->where('type', 'music')->orderBy('created_at', 'desc')->get();
         return view('fileViews.music', compact('data'));
     }
 
     public function download($id)
     {
-        $file = File::find($id);
-        if(GuestCode::where('file_id', $id)->first() || Auth::check()) {
-            try {
-                if ($file->type == "image") {
-                    return response()->download("storage/images/" . $file->file_name, $file->file_name);
-                }
-                if ($file->type == "video") {
-                    return response()->download("storage/videos/" . $file->file_name, $file->file_name);
-                }
-                if ($file->type == "game") {
-                    return response()->download("storage/games/" . $file->file_name, $file->file_name);
-                }
-                if ($file->type == "other") {
-                    return response()->download("storage/other/" . $file->file_name, $file->file_name);
-                }
-                if ($file->type == "music") {
-                    return response()->download("storage/music/" . $file->file_name, $file->file_name);
-                }
-            } catch (\Exception $e) {
-                return $e;
+        if (!Auth::check()) {
+            if (!GuestCode::where('file_id', $id)->first()) {
+                return redirect('/login');
             }
-        } else {
-            return redirect('login');
+            return redirect('/login');
+        }
+
+        $file = File::findOrFail($id);
+
+        switch ($file->type) {
+            case "image":
+                return response()->download("storage/images/" . $file->file_name, $file->file_name);
+            case "video":
+                return response()->download("storage/videos/" . $file->file_name, $file->file_name);
+            case "game":
+                return response()->download("storage/games/" . $file->file_name, $file->file_name);
+            case "other":
+                return response()->download("storage/other/" . $file->file_name, $file->file_name);
+            case "music":
+                return response()->download("storage/music/" . $file->file_name, $file->file_name);
         }
     }
 

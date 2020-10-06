@@ -9,7 +9,7 @@
                         <h5 class="card-title">{{ $game->name }}</h5>
                         <p class="card-text">Uploaded by: {{ $game->username }}</p>
                         <p class="card-text">No preview available</p>
-                        <a href="/file/download/{{ $game->id }}" class="btn dark-color-1 button-fade--white">go to</a>
+                        <a href="{{ route('file', ['id' => $game->id])}}" class="btn dark-color-1 button-fade--white">go to</a>
                     </div>
                 </div>
             </div>
