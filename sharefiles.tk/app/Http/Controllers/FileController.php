@@ -53,7 +53,6 @@ class  FIleController extends Controller
             if (!GuestCode::where('file_id', $id)->first()) {
                 return redirect('/login');
             }
-            return redirect('/login');
         }
 
         $file = File::where('id', $id)->where('soft_delete', 'false')->first();
@@ -77,7 +76,8 @@ class  FIleController extends Controller
         $file = File::findOrFail($id);
         try {
             if (Auth::user()->id == $file->user_id || Auth::user()->role == "admin") {
-                $file->soft_delete = true;
+                $file->soft_delete = 'true';
+                $file->save();
             } else {
                 return "You do not have the permissions to perform this action";
             }
