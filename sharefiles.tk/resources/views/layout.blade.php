@@ -2,161 +2,101 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>sharefiles</title>
 
     <link href="/css/app.css" rel="stylesheet">
-    <link href="/style.css" rel="stylesheet"> <!-- AUB migraten naar SCSS en dan in de gecompileerde CSS doen -->
+    <link href="/style.css" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="d-none d-lg-block">
-    <div class="dark-color-1">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-dark">
-                <a class="navbar-brand" href="/">sharefiles</a>
+<div class="d-flex" id="wrapper">
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-                        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Sidebar -->
+    <div class="dark-color-1" id="sidebar-wrapper">
+        <a href="/"><div class="sidebar-heading">sharefiles</div></a>
+        <div class="list-group list-group-flush">
+            <a href="/videos" class="list-group-item list-group-item-action dark-color-3">videos</a>
+            <a href="/games" class="list-group-item list-group-item-action dark-color-3">games</a>
+            <a href="/images" class="list-group-item list-group-item-action dark-color-3">images</a>
+            <a href="/other" class="list-group-item list-group-item-action dark-color-3">others</a>
+            <a href="/music" class="list-group-item list-group-item-action dark-color-3">music</a>
+            <a class="list-group-item list-group-item-action dark-color-3" data-toggle="collapse" data-target="#uploadContent" aria-controls="uploadContent" aria-expanded="false" aria-label="Toggle upload options">upload</a>
+            <div class="collapse navbar-collapse" id="uploadContent">
+                <a href=/create?type=video class="list-group-item list-group-item-action dark-color-1">video</a>
+                <a href=/create?type=game class="list-group-item list-group-item-action dark-color-1">game</a>
+                <a href=/create?type=image class="list-group-item list-group-item-action dark-color-1">image</a>
+                <a href=/create?type=other class="list-group-item list-group-item-action dark-color-1">other</a>
+                <a href=/create?type=music class="list-group-item list-group-item-action dark-color-1">music</a>
+            </div>
+            <a href="/invite" class="list-group-item list-group-item-action dark-color-3">invite others</a>
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+        <div class="mobilenav-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <h1>sharefiles</h1>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown">
-                        @if(Auth::check())<a class="nav-link dropdown-toggle py-0 px-3" id="navbar--user"
-                                             data-toggle="dropdown"
-                                             aria-haspopup="true" aria-expanded="false">{{ Auth::user()->username }}</a>
-                        @endif
-                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="http://wanwan-html5.moe/#Karen">Profile</a>
-                            <a class="dropdown-item" href="/logout">Logout</a>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-
-    <div class="dark-color-3">
-        <div class="container">
-            <div class="navbar navbar-expand-lg navbar-dark dark-color-3">
-                <div class="collapse navbar-collapse" id="basicExampleNav">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link pl-0 py-0" href="/videos">videos</a>
+                            <a class="nav-link" href="/videos">videos</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link py-0" href="/games">games</a>
+                            <a class="nav-link" href="/games">games</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link py-0" href="/images">images</a>
+                            <a class="nav-link" href="/images">images</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link py-0" href="/other">others</a>
+                            <a class="nav-link" href="/other">other</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link py-0" href="/music">music</a>
+                            <a class="nav-link" href="/music">music</a>
                         </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle py-0" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">upload</a>
-                            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="/create?type=video">video</a>
-                                <a class="dropdown-item" href="/create?type=game">game</a>
-                                <a class="dropdown-item" href="/create?type=image">image</a>
-                                <a class="dropdown-item" href="/create?type=other">other</a>
-                                <a class="dropdown-item" href="/create?type=music">music</a>
-                            </div>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" data-target="#uploadContent" aria-controls="uploadContent" aria-expanded="false" aria-label="Toggle upload options">upload</a>
                         </li>
-
-                        @if(Auth::check())
-                            @if(Auth::user()->role == "admin")
-                                <li class="nav-item">
-                                    <a class="nav-link py-0" href="/invite">invite-others</a>
-                                </li>
-                            @endif
-                        @endif
+                        <div class="collapse navbar-collapse" id="uploadContent">
+                            <a href=/create?type=video class="list-group-item list-group-item-action dark-color-1">video</a>
+                            <a href=/create?type=game class="list-group-item list-group-item-action dark-color-1">game</a>
+                            <a href=/create?type=image class="list-group-item list-group-item-action dark-color-1">image</a>
+                            <a href=/create?type=other class="list-group-item list-group-item-action dark-color-1">other</a>
+                            <a href=/create?type=music class="list-group-item list-group-item-action dark-color-1">music</a>
+                        </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/invite">invite-others</a>
+                        </li>
                     </ul>
                 </div>
-            </div>
+            </nav>
+        </div>
+
+        <div class="container px-5 mb-4" id="app">
+            @yield('content')
         </div>
     </div>
+    <!-- /#page-content-wrapper -->
+
 </div>
 
-<div class="d-block d-lg-none">
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <!-- Navbar brand -->
-        <a class="navbar-brand" href="/" style="font-size: 3rem;">sharesauce</a>
 
-        <!-- Collapse button -->
-        <button class="navbar-toggler" type="button" onclick="showMobileNavigation()">
-            <span class="navbar-toggler-icon" style="font-size: 3rem;"></span>
-        </button>
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
 
-        <div id="mobileNav" class="overlay dark-color-3">
-
-            <div class="row h-100">
-                <div class="col-2 dark-color-2">
-                    <a onclick="hideMobileNavigation()" id="closeButton">&times;</a>
-                </div>
-
-                <div class="col-10 my-auto">
-                    <h1 class="text-center mb-5" id="navigation_mobile_title">sharefiles</h1>
-                    <a class="h1 mb-4 mt-5">View</a>
-                    <div class="row mt-4 pl-3 mb-5">
-                        <div class="pl-5 col">
-                            <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
-                                <a href="/zip" class="h1 w-100">Zip files</a>
-                            </div>
-
-                            <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
-                                <a href="/games" class="h1 w-100">Games</a>
-                            </div>
-
-                            <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
-                                <a href="/images" class="h1 w-100">Image</a>
-                            </div>
-
-                            <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
-                                <a href="/other" class="h1 w-100">Other</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a class="h1 mb-4">Upload</a>
-                    <div class="row mt-4 pl-3 mb-5">
-                        <div class="pl-5 col">
-                            <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
-                                <a href="/create?type=zip" class="h1 w-100">Zip</a>
-                            </div>
-
-                            <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
-                                <a href="/create?type=games" class="h1 w-100">Games</a>
-                            </div>
-
-                            <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
-                                <a href="/create?type=image" class="h1 w-100">Image</a>
-                            </div>
-
-                            <div class="row col mb-2 p-2 dark-color-2 navigation_mobile_element">
-                                <a href="/create?type=other" class="h1 w-100">Other</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-</div>
-
-<div class="container px-5 mb-4" id="app">
-    @yield('content')
-</div>
 <script src="/js/app.js" type="application/javascript"></script>
 
 </body>
