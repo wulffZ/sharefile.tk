@@ -24,11 +24,11 @@
             <a href="/music" class="list-group-item list-group-item-action dark-color-3">music</a>
             <a class="list-group-item list-group-item-action dark-color-3" data-toggle="collapse" data-target="#uploadContent" aria-controls="uploadContent" aria-expanded="false" aria-label="Toggle upload options">upload</a>
             <div class="collapse navbar-collapse" id="uploadContent">
-                <a href=/create?type=video class="list-group-item list-group-item-action dark-color-1">video</a>
-                <a href=/create?type=game class="list-group-item list-group-item-action dark-color-1">game</a>
-                <a href=/create?type=image class="list-group-item list-group-item-action dark-color-1">image</a>
-                <a href=/create?type=other class="list-group-item list-group-item-action dark-color-1">other</a>
-                <a href=/create?type=music class="list-group-item list-group-item-action dark-color-1">music</a>
+                <a href=/create?type=video class="list-group-item list-group-item-action dark-color-1"><h6 class="pl-3">videos</h6></a>
+                <a href=/create?type=game class="list-group-item list-group-item-action dark-color-1"><h6 class="pl-3">game</h6></a>
+                <a href=/create?type=image class="list-group-item list-group-item-action dark-color-1"><h6 class="pl-3">image</h6></a>
+                <a href=/create?type=other class="list-group-item list-group-item-action dark-color-1"><h6 class="pl-3">other</h6></a>
+                <a href=/create?type=music class="list-group-item list-group-item-action dark-color-1"><h6 class="pl-3">music</h6></a>
             </div>
             <a href="/invite" class="list-group-item list-group-item-action dark-color-3">invite others</a>
         </div>
