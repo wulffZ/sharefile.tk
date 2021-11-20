@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('load-video', require('./components/load-video.vue').default);
+Vue.component('delete-confirm-button', require('./components/DeleteConfirmButton.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
